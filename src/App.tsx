@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Sidebar from "@/components/Sidebar";
+import { BottomNav } from "@/components/MobileNav";
 import AuthPage from "@/pages/AuthPage";
 import Dashboard from "@/pages/Dashboard";
 import TasksPage from "@/pages/TasksPage";
@@ -19,9 +20,10 @@ function AppLayout() {
   return (
     <div className="flex min-h-screen w-full bg-background">
       <Sidebar className="hidden md:flex" />
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden pb-14 md:pb-0">
         <Outlet />
       </div>
+      <BottomNav />
     </div>
   );
 }
