@@ -2,7 +2,7 @@ import { Bell, Search, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
-
+import { MobileMenuButton } from "@/components/MobileNav";
 interface TopNavbarProps {
   onSearch?: (query: string) => void;
   searchValue?: string;
@@ -16,14 +16,17 @@ export default function TopNavbar({ onSearch, searchValue, onCreateTask }: TopNa
   const greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
 
   return (
-    <header className="h-16 border-b border-border flex items-center justify-between px-6 bg-background/80 backdrop-blur-sm sticky top-0 z-20">
-      <div className="flex flex-col">
+    <header className="h-16 border-b border-border flex items-center justify-between px-4 md:px-6 bg-background/80 backdrop-blur-sm sticky top-0 z-20">
+      <div className="flex items-center gap-3">
+        <MobileMenuButton />
+        <div className="flex flex-col">
         <h2 className="font-display font-semibold text-foreground text-sm leading-none">
           {greeting}, {name} 👋
         </h2>
         <p className="text-xs text-muted-foreground mt-0.5">
           {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}
         </p>
+        </div>
       </div>
 
       <div className="flex items-center gap-3">
